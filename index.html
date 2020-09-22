@@ -1,22 +1,23 @@
 <!doctype html><html><head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1"> 
   <script src="https://kit.fontawesome.com/a076d05399.js"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
  <style type="text/css" id="dcoder_stylesheet">#intro{
   position:relative;
   top:0px;
   background:-webkit-linear-gradient(top,purple,yellow);
-  height:500px;
-  width:100%;
-  border-radius:20px;
- box-shadow:0 5px 12px grey,3px 0 2px grey,-3px 0 2px grey;
- 
+  height:250px;
+  width:95%;
+  
+  box-shadow:0 5px 12px grey,3px 0 2px grey,-3px 0 2px grey;
   }
-  body{
+body{
     position:relative;
-    
-    
     animation:anime 1s 1;
     }
-  @keyframes anime{
+@keyframes anime{
     from{
       top:20px;
       }
@@ -24,24 +25,38 @@
         top:0px;
         }
         }
-  #txt{
+#txt{
     position:absolute;
-         color:white;
+    color:white;
             
     }
     
-    i{
-      
-      font-size:50px;
-      padding:10px;
-           }</style></head> 
+i{
+  font-size:20px;
+  padding:10px;
+       }
+           
+p{
+    display:none;
+    position:absolute;
+    top:200px;
+    left:15px;
+        }
+ #inf{
+    width:100%;
+    height:300px;
+    display:none;
+        }</style></head> 
  <body> 
   <center> 
    <div id="intro"> 
-    <h1 id="txt"></h1> 
+    <h3 id="txt"></h3> 
+    <br> 
+    <p class="text-warning">I am a class 11 ISC student from Jamshedpur,India and I study in DBMS English School</p> 
    </div> 
   </center> 
   <br> 
+  <div class="bg-warning" id="inf"></div> 
   <i class="fab fa-twitter" onclick="window.location.assign('https://mobile.twitter.com/bla02989565')"></i> 
   <i class="fab fa-facebook" onclick="window.location.assign('https://m.facebook.com/abhishek.jawanpuria')"></i> 
   <i class="fab fa-github" onclick="window.location.assign('https://github.com/Abhishek1345')"></i> 
@@ -52,8 +67,11 @@ var id=setInterval(write,350);
 var i=0;
 function write(){
   if(i>=name.length){
-  return;
+    $("p").fadeIn(2000);
+    $("#inf").slideDown(2000);
+  
   clearInterval(id);
+  return;
   }
   document.getElementById("txt").innerHTML+=name.charAt(i);
   i++;
